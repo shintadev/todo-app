@@ -1,7 +1,9 @@
 // filepath: /todo-app-fe/src/services/todoService.js
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8080/api/todos';
+const API_HOST = process.env.API_HOST || 'localhost';
+
+const API_URL = `http://${API_HOST}:8080/api/todos`;
 
 const getTodos = () => axios.get(API_URL);
 const getPendingTodos = () => axios.get(`${API_URL}/pending`);
